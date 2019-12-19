@@ -6,6 +6,7 @@ authors = ["Øystein S. Haaland <oystein@beat.no>"]
 
 [tool.poetry.dependencies]
 python = "^3.6"
+rope = "^0.14.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
