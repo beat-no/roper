@@ -4,7 +4,7 @@ from rope.base.project import Project
 from rope.refactor import move
 from rope.refactor.rename import Rename
 from rope.refactor.occurrences import Finder
-from . import lib
+from roper import lib
 
 PROJECT = Project('.')
 FINDER = partial(Finder, PROJECT)

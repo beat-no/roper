@@ -1,0 +1,6 @@
+.kdev4/
+.ropeproject/
+dist/
+roper.egg-info/
+roper.kdev4
+
