@@ -3,6 +3,7 @@ name = "roper"
 version = "0.1.0"
 description = ""
 authors = ["Øystein S. Haaland <oystein@beat.no>"]
+readme ="README.rst"
 
 [tool.poetry.dependencies]
 python = "^3.6"
@@ -11,6 +12,9 @@ invoke = "^1.3.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
+
+[tool.poetry.scripts]
+roper = "roper.__main__:program.run"
 
 [build-system]
 requires = ["poetry>=0.12"]
