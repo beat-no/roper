@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "roper"
-version = "0.1.0"
+version = "0.1.1"
 description = "A CLI tool for the roper library."
 authors = ["Øystein S. Haaland <oystein@beat.no>"]
 readme ="README.rst"
