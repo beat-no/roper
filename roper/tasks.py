@@ -1,8 +1,8 @@
 from functools import partial
 from invoke import task
 from rope.base.project import Project
-from rope.refactor import move
 from rope.refactor.rename import Rename
+from rope.refactor.move import create_move
 from rope.refactor.occurrences import Finder
 from . import lib
 
@@ -30,28 +30,28 @@ def rename_module(ctxt, module, to_name, do=False):
 
 
 @task
-def move_class(ctxt, class_name, source, target, do=False):
+def move(ctxt, name, source, target, do=False):
     """
-    Move class: --class-name <> --source <module> --target <module> [--do False]
+    Move definition: --name <> --source <module> --target <module> [--do False]
     
     https://github.com/python-rope/rope/issues/231
     """
-    finder = FINDER(class_name)
+    finder = FINDER(name)
     source_resource = PROJECT.get_resource(source)
     target_resource = PROJECT.get_resource(target)
-    class_occurrence = next(
+    definition_occurrence = next(
         occ for occ in finder.find_occurrences(resource=source_resource) if occ.is_defined())
-    mover = move.create_move(PROJECT, source_resource, class_occurrence.offset)
+    mover = create_move(PROJECT, source_resource, definition_occurrence.offset)
     changes = mover.get_changes(target_resource)
     execute_changes(changes, do)
 
 
 @task
-def find_class(ctxt, class_name="PackageTaskSet"):
+def find(ctxt, name):
     """
-    Find class: [--class-name <>]
+    Find class, method or variable: --name <>
     """
-    finder = FINDER(class_name)
+    finder = FINDER(name)
     for source_folder in PROJECT.get_source_folders():
         print("In source folder: %s" % source_folder.name)
         for module_resource in lib.find_module_resources(source_folder):
