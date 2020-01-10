@@ -6,8 +6,9 @@ A CLI tool for the roper library.
 
 Develop
 =======
-This package was setup using https://python-poetry.org/. To get started, install poetry and run
-`poetry install` in the project directory.
+This package was setup using https://python-poetry.org/. To get started, install poetry
+(`pip install --user poetry`), run `poetry install` in the project directory and enter the
+virtualenv by running `poetry shell`.
 
 Alternatives
 ============
