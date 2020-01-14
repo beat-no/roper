@@ -2,13 +2,24 @@
 roper
 =====
 
-A CLI tool for the roper library.
+A CLI refactoring tool using the `rope <https://github.com/python-rope/rope>`_ library.
+
+Install
+=======
+To install for the current user, do::
+
+    $ pip install --user roper
 
 Develop
 =======
-This package was setup using https://python-poetry.org/. To get started, install poetry
-(`pip install --user poetry`), run `poetry install` in the project directory and enter the
-virtualenv by running `poetry shell`.
+This package use https://python-poetry.org/. To install from a checked out repo, do::
+
+    $ pip install --user poetry
+    $ poetry install
+
+in the project directory. Enter the virtualenv by running::
+
+    $ poetry shell
 
 Alternatives
 ============
@@ -31,4 +42,5 @@ Libraries
 
 Resources
 =========
+* https://github.com/python-rope/rope
 * https://realpython.com/python-refactoring/
