@@ -16,7 +16,12 @@ def execute_changes(changes, do):
         PROJECT.do(changes)
         print("Change set has been applied.")
     else:
-        print("Change set is shown above. Use --do to actually apply the changes.")    
+        print("Change set is shown above. Use --do to actually apply the changes.")
+
+
+def find_definition_in_resource(name, resource):
+    finder = FINDER(name)
+    return next(occ for occ in finder.find_occurrences(resource=resource) if occ.is_defined())
 
 
 @task
@@ -30,17 +35,26 @@ def rename_module(ctxt, module, to_name, do=False):
 
 
 @task
+def rename(ctxt, resource, old, new, do=False):
+    """
+    Rename function: --resource <path> --old <name> --new <name>
+    """
+    resource = PROJECT.get_resource(resource)
+    definition_occurrence = find_definition_in_resource(old, resource)
+    changes = Rename(PROJECT, resource, definition_occurrence.offset).get_changes(new)
+    execute_changes(changes, do)
+
+
+@task
 def move(ctxt, name, source, target, do=False):
     """
     Move definition: --name <> --source <module> --target <module> [--do False]
     
     https://github.com/python-rope/rope/issues/231
     """
-    finder = FINDER(name)
     source_resource = PROJECT.get_resource(source)
     target_resource = PROJECT.get_resource(target)
-    definition_occurrence = next(
-        occ for occ in finder.find_occurrences(resource=source_resource) if occ.is_defined())
+    definition_occurrence = find_definition_in_resource(name, source_resource)
     mover = create_move(PROJECT, source_resource, definition_occurrence.offset)
     changes = mover.get_changes(target_resource)
     execute_changes(changes, do)
