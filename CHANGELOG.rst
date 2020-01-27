@@ -1,6 +1,7 @@
 0.1.3 next release
 ------------------
-- add rename task
+- add rename-by-offset task
+- add rename-by-name task
 
 0.1.2 2020-01-10
 ----------------
