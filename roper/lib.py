@@ -53,7 +53,8 @@ def occ_info(occ):
 
 def print_occurences(occurrences):
     for occ in occurrences:
-        print("{filename} {occurrence_types}: {code_line}".format(
+        print("{filename}:{offset} {occurrence_types}: {code_line}".format(
             filename=occ.resource.path,
+            offset=occ.offset,
             code_line=get_line(occ.resource.read(), occ.offset).strip(),
             occurrence_types=occ_info(occ)))
