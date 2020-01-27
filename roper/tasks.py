@@ -35,9 +35,19 @@ def rename_module(ctxt, module, to_name, do=False):
 
 
 @task
-def rename(ctxt, resource, old, new, do=False):
+def rename_by_offset(ctxt, resource, offset, new, do=False):
     """
-    Rename function: --resource <path> --old <name> --new <name>
+    Rename by offset: --resource <path> --offset <int> --new <name> [--do False]
+    """
+    resource = PROJECT.get_resource(resource)
+    changes = Rename(PROJECT, resource, int(offset)).get_changes(new)
+    execute_changes(changes, do)
+
+
+@task
+def rename_by_name(ctxt, resource, old, new, do=False):
+    """
+    Rename by name: --resource <path> --old <name> --new <name> [--do False]
     """
     resource = PROJECT.get_resource(resource)
     definition_occurrence = find_definition_in_resource(old, resource)
