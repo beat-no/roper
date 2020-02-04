@@ -27,7 +27,7 @@ def find_definition_in_resource(name, resource):
 @task
 def rename_module(ctxt, module, to_name, do=False):
     """
-    Rename module: --module <nam> --to-name <> [--do False]
+    Rename module: --module <name> --to-name <> [--do False]
     """
     module_resource = PROJECT.get_resource(module)
     changes = Rename(PROJECT, module_resource).get_changes(to_name)
@@ -56,7 +56,8 @@ def rename_by_name(ctxt, resource, old, new, do=False):
 
 
 @task
-def move(ctxt, name, source, target, do=False):
+@task
+def move_by_name(ctxt, name, source, target, do=False):
     """
     Move definition: --name <> --source <module> --target <module> [--do False]
     
