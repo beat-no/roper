@@ -1,5 +1,6 @@
 0.1.3 next release
 ------------------
+- add move-module task
 - rename move task to move-by-name
 - add rename-by-offset task
 - add rename-by-name task

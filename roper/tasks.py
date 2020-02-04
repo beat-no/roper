@@ -56,6 +56,17 @@ def rename_by_name(ctxt, resource, old, new, do=False):
 
 
 @task
+def move_module(ctxt, source, target, do=False):
+    """
+    Move module: --source <module> --target <module> [--do False]
+    """
+    source_resource = PROJECT.get_resource(source)
+    target_resource = PROJECT.get_resource(target)
+    mover = create_move(PROJECT, source_resource)
+    changes = mover.get_changes(target_resource)
+    execute_changes(changes, do)
+
+
 @task
 def move_by_name(ctxt, name, source, target, do=False):
     """
