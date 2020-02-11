@@ -1,5 +1,6 @@
-0.1.3 next release
-------------------
+0.1.3 2020-02-11
+----------------
+- handle versioning with sykel
 - add move-module task
 - rename move task to move-by-name
 - add rename-by-offset task
