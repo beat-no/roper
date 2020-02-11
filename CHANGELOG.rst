@@ -1,3 +1,8 @@
+0.1.4 2020-02-11
+----------------
+- complete transition from poetry to sykel
+- fix broken CLI command due to package being built by setuptools instead of poetry
+
 0.1.3 2020-02-11
 ----------------
 - handle versioning with sykel
