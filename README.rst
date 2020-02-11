@@ -12,17 +12,13 @@ To install for the current user, do::
 
 Develop
 =======
-This currently use https://python-poetry.org/ for package handling and more. To install from a
-checked out repo, do::
+To prepare for development, do::
 
-    $ pip install --user poetry
-    $ poetry install
+    $ git clone https://github.com/beat-no/roper.git
+    $ cd roper
+    $ mkvirtualenv roper
 
-in the project directory. Enter the virtualenv by running::
-
-    $ poetry shell
-
-Other tasks are handled by `sykel`. To install, do::
+Releasing new versions of the package is handled by `sykel`. To install, do::
 
     $ pip install --user sykel
 
