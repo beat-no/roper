@@ -12,7 +12,8 @@ To install for the current user, do::
 
 Develop
 =======
-This package uses mainly https://python-poetry.org/. To install from a checked out repo, do::
+This currently use https://python-poetry.org/ for package handling and more. To install from a
+checked out repo, do::
 
     $ pip install --user poetry
     $ poetry install
@@ -21,10 +22,16 @@ in the project directory. Enter the virtualenv by running::
 
     $ poetry shell
 
-To bump releases, use sykel::
+Other tasks are handled by `sykel`. To install, do::
 
     $ pip install --user sykel
+
+To preapre a release, do::
+
     $ sykel version.bump
+    $ sykel package.clean package.build
+    $ sykel package.publish
+
 
 Alternatives
 ============
