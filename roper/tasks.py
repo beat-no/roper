@@ -21,7 +21,9 @@ def execute_changes(changes, do):
 
 def find_definition_in_resource(name, resource):
     finder = FINDER(name)
-    return next(occ for occ in finder.find_occurrences(resource=resource) if occ.is_defined())
+    return next(occ
+                for occ in finder.find_occurrences(resource=resource)
+                if occ.is_defined() or occ.is_written())
 
 
 @task
