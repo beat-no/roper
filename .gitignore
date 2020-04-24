@@ -4,4 +4,5 @@ dist/
 roper.egg-info/
 roper.kdev4
 __pycache__
+build/
 
