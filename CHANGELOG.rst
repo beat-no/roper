@@ -1,3 +1,7 @@
+0.1.5 2020-04-24
+----------------
+- add support for moving variable declarations
+
 0.1.4 2020-02-11
 ----------------
 - complete transition from poetry to sykel
